@@ -1,12 +1,12 @@
 const qrcode = require('qrcode-terminal');
 const fs = require("fs");
 const axios = require('axios');
-const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client } = require('whatsapp-web.js');
 
 const client = new Client({
-     authStrategy: new LocalAuth({
-          clientId: "client-one" //Un identificador(Sugiero que no lo modifiques)
-     })
+    puppeteer: {
+        args: ['--no-sandbox'],
+    }
 });
 // Save session values to the file upon successful auth
 client.on('authenticated', (session) => {
